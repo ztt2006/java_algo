@@ -48,4 +48,25 @@ public class BinarySearch {
         return -1;
     }
 
+
+    /***
+     * 二分查找平衡版
+     * @param a
+     * @param target
+     * @return
+     */
+    public static int binarySearchBalance(int[] a, int target) {
+        int i = 0, j = a.length;
+        while (1 < j - i) {
+            int m = (i + j) >>> 1;
+            if (target < a[m]) {
+                j = m;
+            } else {
+                i = m;
+            }
+        }
+
+        return (target == a[i]) ? i : -1;
+    }
+
 }
