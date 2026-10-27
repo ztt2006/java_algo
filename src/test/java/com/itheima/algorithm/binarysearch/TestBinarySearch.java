@@ -3,6 +3,8 @@ package com.itheima.algorithm.binarysearch;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
+import java.util.Arrays;
+
 import static com.itheima.algorithm.binarysearch.BinarySearch.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -71,5 +73,25 @@ public class TestBinarySearch {
         assertEquals(-1, binarySearchBalance(a, 0));
         assertEquals(-1, binarySearchBalance(a, 15));
         assertEquals(-1, binarySearchBalance(a, 60));
+    }
+
+    @Test
+    @DisplayName("binarySearch java版")
+    public void test8() {
+        int[] a = {7, 13, 21, 30, 38, 44, 52, 53};
+        int target = 8;
+
+        int i = Arrays.binarySearch(a, target);
+        System.out.println(i);
+
+        if (i < 0) {
+            int insertIndex = Math.abs(i + 1);
+            int[] b = new int[a.length + 1];
+            System.arraycopy(a, 0, b, 0, insertIndex);
+            b[insertIndex] = target;
+            System.arraycopy(a, insertIndex, b, insertIndex + 1, a.length - insertIndex);
+            System.out.println(Arrays.toString(b));
+            System.out.println(b);
+        }
     }
 }
