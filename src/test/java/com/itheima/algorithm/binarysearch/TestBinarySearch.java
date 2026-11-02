@@ -94,4 +94,37 @@ public class TestBinarySearch {
             System.out.println(b);
         }
     }
+
+    @Test
+    @DisplayName("binarySearchLeftmost1 返回-1")
+    public void test9() {
+        int[] a = {1, 2, 4, 4, 4, 5, 6, 7};
+        assertEquals(0, binarySearchLeftmost1(a, 1));
+        assertEquals(1, binarySearchLeftmost1(a, 2));
+        assertEquals(2, binarySearchLeftmost1(a, 4));
+        assertEquals(5, binarySearchLeftmost1(a, 5));
+        assertEquals(6, binarySearchLeftmost1(a, 6));
+        assertEquals(7, binarySearchLeftmost1(a, 7));
+
+        assertEquals(-1, binarySearchLeftmost1(a, 0));
+        assertEquals(-1, binarySearchLeftmost1(a, 3));
+        assertEquals(-1, binarySearchLeftmost1(a, 8));
+    }
+
+    @Test
+    @DisplayName("测试 binarySearchRightmost 返回 -1")
+    public void test7() {
+        int[] a = {1, 2, 4, 4, 4, 5, 6, 7};
+        assertEquals(0, binarySearchRightmost1(a, 1));
+        assertEquals(1, binarySearchRightmost1(a, 2));
+        assertEquals(4, binarySearchRightmost1(a, 4));
+        assertEquals(5, binarySearchRightmost1(a, 5));
+        assertEquals(6, binarySearchRightmost1(a, 6));
+        assertEquals(7, binarySearchRightmost1(a, 7));
+
+        assertEquals(-1, binarySearchRightmost1(a, 0));
+        assertEquals(-1, binarySearchRightmost1(a, 3));
+        assertEquals(-1, binarySearchRightmost1(a, 8));
+    }
+
 }

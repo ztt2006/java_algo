@@ -69,4 +69,93 @@ public class BinarySearch {
         return (target == a[i]) ? i : -1;
     }
 
+    /***
+     * 二分查找左最左版
+     * @param a
+     * @param target
+     * @return
+     */
+    public static int binarySearchLeftmost1(int[] a, int target) {
+        int i = 0, j = a.length - 1;
+        int candidate = -1;
+        while (i <= j) {
+            int m = (i + j) >>> 1;
+            if (target < a[m]) {
+                j = m - 1;
+            } else if (target > a[m]) {
+                i = m + 1;
+            } else {
+                //     记录候选位置
+                candidate = m;
+                j = m - 1;
+            }
+        }
+        return candidate;
+    }
+
+    /***
+     * 二分查找右最右版
+     * @param a
+     * @param target
+     * @return
+     */
+    public static int binarySearchRightmost1(int[] a, int target) {
+
+        int i = 0, j = a.length - 1;
+        int candidate = -1;
+        while (i <= j) {
+            int m = (i + j) >>> 1;
+            if (target < a[m]) {
+                j = m - 1;
+            } else if (target > a[m]) {
+                i = m + 1;
+            } else {
+                //     记录候选位置
+                candidate = m;
+                i = m + 1;
+            }
+        }
+        return candidate;
+    }
+
+    /***
+     * 二分查找左最左版
+     * @param a
+     * @param target
+     * @return
+     */
+    public static int binarySearchLeftmost2(int[] a, int target) {
+        int i = 0, j = a.length - 1;
+        while (i <= j) {
+            int m = (i + j) >>> 1;
+            if (target <= a[m]) {
+                j = m - 1;
+            } else {
+                i = m + 1;
+            }
+        }
+        return i;
+    }
+
+    /***
+     * 二分查找右最右版
+     * @param a
+     * @param target
+     * @return
+     */
+    public static int binarySearchRightmost2(int[] a, int target) {
+
+        int i = 0, j = a.length - 1;
+        while (i <= j) {
+            int m = (i + j) >>> 1;
+            if (target < a[m]) {
+                j = m - 1;
+            } else {
+                i = m + 1;
+            }
+        }
+        return i - 1;
+    }
+
+
 }
