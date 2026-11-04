@@ -40,4 +40,29 @@ public class TestDynamicArray {
         });
     }
 
+    @Test
+    public void test3() {
+        DynamicArray dynamicArray = new DynamicArray();
+        dynamicArray.addLast(1);
+        dynamicArray.addLast(2);
+        dynamicArray.addLast(3);
+        dynamicArray.addLast(4);
+
+        for (Integer element : dynamicArray) {
+            System.out.println(element);
+        }
+    }
+
+    @Test
+    public void test4() {
+        DynamicArray dynamicArray = new DynamicArray();
+        dynamicArray.addLast(1);
+        dynamicArray.addLast(2);
+        dynamicArray.addLast(3);
+        dynamicArray.addLast(4);
+
+
+        dynamicArray.stream().forEach(System.out::println);
+    }
 }
+

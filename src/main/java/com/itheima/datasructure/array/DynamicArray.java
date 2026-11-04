@@ -1,7 +1,9 @@
 package com.itheima.datasructure.array;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.function.Consumer;
+import java.util.stream.IntStream;
 
 /***
  * 动态数组
@@ -39,6 +41,22 @@ public class DynamicArray implements Iterable<Integer> {
 
     @Override
     public Iterator<Integer> iterator() {
-        return null;
+        return new Iterator<Integer>() {
+            int i = 0;
+
+            @Override
+            public boolean hasNext() {
+                return i < size;
+            }
+
+            @Override
+            public Integer next() {
+                return array[i++];
+            }
+        };
+    }
+
+    public IntStream stream() {
+        return IntStream.of(Arrays.copyOfRange(array, 0, size));
     }
 }
