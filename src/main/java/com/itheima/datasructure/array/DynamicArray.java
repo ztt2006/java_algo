@@ -27,6 +27,17 @@ public class DynamicArray implements Iterable<Integer> {
         size++;
     }
 
+    public int remove(int index) {
+        int removed = array[index];
+
+        if (index < size - 1) {
+            System.arraycopy(array, index + 1, array, index, size - index - 1);
+        }
+        size--;
+
+        return removed;
+    }
+
     public int get(int index) {
         return array[index];
     }

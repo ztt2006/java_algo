@@ -4,7 +4,10 @@ import com.itheima.datasructure.array.DynamicArray;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
 public class TestDynamicArray {
 
@@ -62,6 +65,21 @@ public class TestDynamicArray {
         dynamicArray.addLast(4);
 
 
+        dynamicArray.stream().forEach(System.out::println);
+    }
+
+    @Test
+    public void test5() {
+        DynamicArray dynamicArray = new DynamicArray();
+        dynamicArray.addLast(1);
+        dynamicArray.addLast(2);
+        dynamicArray.addLast(3);
+        dynamicArray.addLast(4);
+        dynamicArray.addLast(5);
+
+        int removed = dynamicArray.remove(2);
+        assertEquals(3, removed);
+        assertIterableEquals(List.of(1, 2, 4, 5), dynamicArray);
         dynamicArray.stream().forEach(System.out::println);
     }
 }
