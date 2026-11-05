@@ -85,5 +85,27 @@ public class SinglyLinkedList implements Iterable<Integer> {
         }
         last.next = new Node(value, null);
     }
+
+    //     查找链表指定索引的节点
+    private Node findNode(int index) {
+        int i = 0;
+        Node p = head;
+        while (p != null) {
+            if (i == index) {
+                return p;
+            }
+            p = p.next;
+            i++;
+        }
+        return null;
+    }
+
+    public int get(int index) {
+        Node p = findNode(index);
+        if (p == null) {
+            throw new IllegalArgumentException(String.format("索引超出范围，索引为：%d", index));
+        }
+        return p.value;
+    }
 }
 

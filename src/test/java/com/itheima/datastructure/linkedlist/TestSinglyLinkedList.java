@@ -46,9 +46,12 @@ public class TestSinglyLinkedList {
         list.addLast(2);
         list.addLast(3);
         list.addLast(4);
-        for (Integer i : list) {
-            System.out.println(i);
-        }
+        // for (Integer i : list) {
+        //     System.out.println(i);
+        // }
+
+        int i = list.get(20);
+        System.out.println(i);
         assertIterableEquals(List.of(1, 2, 3, 4), list);
     }
 }
