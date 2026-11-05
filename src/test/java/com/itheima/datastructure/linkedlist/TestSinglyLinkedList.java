@@ -83,4 +83,41 @@ public class TestSinglyLinkedList {
         list.addLast(4);
         return list;
     }
+
+    @Test
+    @DisplayName("测试 removeFirst")
+    public void test5() {
+        SinglyLinkedList list = getLinkedList();
+
+        list.removeFirst();
+        assertIterableEquals(List.of(2, 3, 4), list);
+        list.removeFirst();
+        assertIterableEquals(List.of(3, 4), list);
+        list.removeFirst();
+        assertIterableEquals(List.of(4), list);
+        list.removeFirst();
+        assertIterableEquals(List.of(), list);
+        assertThrows(IllegalArgumentException.class, list::removeFirst);
+    }
+
+    @Test
+    @DisplayName("测试 remove")
+    public void test6() {
+        SinglyLinkedList list1 = getLinkedList();
+        list1.remove(2);
+        assertIterableEquals(List.of(1, 2, 4), list1);
+
+
+        SinglyLinkedList list2 = getLinkedList();
+        list2.remove(0);
+        assertIterableEquals(List.of(2, 3, 4), list2);
+
+        SinglyLinkedList list3 = getLinkedList();
+        assertThrows(IllegalArgumentException.class, () -> list3.remove(5));
+
+        SinglyLinkedList list4 = getLinkedList();
+        assertThrows(IllegalArgumentException.class, () -> list4.remove(4));
+    }
+
+
 }

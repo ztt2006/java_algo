@@ -108,6 +108,7 @@ public class SinglyLinkedList implements Iterable<Integer> {
         return p.value;
     }
 
+    //     在链表指定索引添加节点
     public void insert(int index, int value) {
         if (index == 0) {
             addFirst(value);
@@ -122,6 +123,30 @@ public class SinglyLinkedList implements Iterable<Integer> {
 
     private static void illegalIndex(int index) {
         throw new IllegalArgumentException(String.format("索引超出范围，索引为：%d", index));
+    }
+
+    //     删除链表头节点
+    public void removeFirst() {
+        if (head == null) {
+            illegalIndex(0);
+        }
+        head = head.next;
+    }
+
+    public void remove(int index) {
+        if (index == 0) {
+            removeFirst();
+            return;
+        }
+        Node prev = findNode(index - 1);
+        if (prev == null) {
+            illegalIndex(index);
+        }
+        Node removed = prev.next;
+        if (removed == null) {
+            illegalIndex(index);
+        }
+        prev.next = removed.next;
     }
 }
 
