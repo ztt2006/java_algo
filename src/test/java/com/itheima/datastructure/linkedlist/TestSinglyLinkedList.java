@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestSinglyLinkedList {
 
@@ -53,5 +54,33 @@ public class TestSinglyLinkedList {
         int i = list.get(20);
         System.out.println(i);
         assertIterableEquals(List.of(1, 2, 3, 4), list);
+    }
+
+    @Test
+    @DisplayName("测试 insert")
+    public void test4() {
+        SinglyLinkedList list = getLinkedList();
+        list.insert(0, 5);
+        assertIterableEquals(List.of(5, 1, 2, 3, 4), list);
+
+        list = getLinkedList();
+        list.insert(2, 5);
+        assertIterableEquals(List.of(1, 2, 5, 3, 4), list);
+
+        list = getLinkedList();
+        list.insert(4, 5);
+        assertIterableEquals(List.of(1, 2, 3, 4, 5), list);
+
+        assertThrows(IllegalArgumentException.class,
+                () -> getLinkedList().insert(5, 5));
+    }
+
+    private SinglyLinkedList getLinkedList() {
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(4);
+        return list;
     }
 }

@@ -103,9 +103,25 @@ public class SinglyLinkedList implements Iterable<Integer> {
     public int get(int index) {
         Node p = findNode(index);
         if (p == null) {
-            throw new IllegalArgumentException(String.format("索引超出范围，索引为：%d", index));
+            illegalIndex(index);
         }
         return p.value;
+    }
+
+    public void insert(int index, int value) {
+        if (index == 0) {
+            addFirst(value);
+            return;
+        }
+        Node prev = findNode(index - 1);
+        if (prev == null) {
+            illegalIndex(index);
+        }
+        prev.next = new Node(value, prev.next);
+    }
+
+    private static void illegalIndex(int index) {
+        throw new IllegalArgumentException(String.format("索引超出范围，索引为：%d", index));
     }
 }
 
