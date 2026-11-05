@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 public class DynamicArray implements Iterable<Integer> {
     private int size = 0;
     private int capacity = 8;
-    private int[] array = new int[capacity];
+    private int[] array = {};
 
     public void addLast(int element) {
         // array[size] = element;
@@ -20,11 +20,23 @@ public class DynamicArray implements Iterable<Integer> {
     }
 
     public void add(int index, int element) {
+        checkAndGrow();
         if (index >= 0 && index < size) {
             System.arraycopy(array, index, array, index + 1, size - index);
         }
         array[index] = element;
         size++;
+    }
+
+    public void checkAndGrow() {
+        if (size == 0) {
+            array = new int[capacity];
+        } else if (size == capacity) {
+            capacity += capacity >> 1;
+            int[] newArray = new int[capacity];
+            System.arraycopy(array, 0, newArray, 0, size);
+            array = newArray;
+        }
     }
 
     public int remove(int index) {

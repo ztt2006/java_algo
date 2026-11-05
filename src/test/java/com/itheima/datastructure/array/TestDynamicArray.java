@@ -82,5 +82,16 @@ public class TestDynamicArray {
         assertIterableEquals(List.of(1, 2, 4, 5), dynamicArray);
         dynamicArray.stream().forEach(System.out::println);
     }
+
+    @Test
+    @DisplayName("测试扩容")
+    public void test6() {
+        DynamicArray dynamicArray = new DynamicArray();
+        for (int i = 0; i < 9; i++) {
+            dynamicArray.addLast(i + 1);
+        }
+
+        assertIterableEquals(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9), dynamicArray);
+    }
 }
 
