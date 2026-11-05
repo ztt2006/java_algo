@@ -63,5 +63,27 @@ public class SinglyLinkedList implements Iterable<Integer> {
             consumer.accept(p.value);
         }
     }
+
+    //     查找链表最后一个节点
+    private Node findLast() {
+        if (head == null) {
+            return null;
+        }
+        Node p = head;
+        while (p.next != null) {
+            p = p.next;
+        }
+        return p;
+    }
+
+    //     在链表尾添加节点
+    public void addLast(int value) {
+        Node last = findLast();
+        if (last == null) {
+            addFirst(value);
+            return;
+        }
+        last.next = new Node(value, null);
+    }
 }
 

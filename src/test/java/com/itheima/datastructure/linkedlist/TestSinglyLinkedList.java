@@ -37,4 +37,18 @@ public class TestSinglyLinkedList {
         }
         // assertIterableEquals(List.of(4, 3, 2, 1), list);
     }
+
+    @Test
+    @DisplayName("测试addLast")
+    public void test3() {
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(4);
+        for (Integer i : list) {
+            System.out.println(i);
+        }
+        assertIterableEquals(List.of(1, 2, 3, 4), list);
+    }
 }
