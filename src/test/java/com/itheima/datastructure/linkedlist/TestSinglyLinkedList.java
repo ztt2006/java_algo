@@ -119,5 +119,15 @@ public class TestSinglyLinkedList {
         assertThrows(IllegalArgumentException.class, () -> list4.remove(4));
     }
 
+    @Test
+    public void test() {
+        SinglyLinkedList list = getLinkedList();
+        list.loop3((value) -> {
+            System.out.println("before:" + value);
+        }, (value) -> {
+            System.out.println("after:" + value);
+        });
+    }
+
 
 }
