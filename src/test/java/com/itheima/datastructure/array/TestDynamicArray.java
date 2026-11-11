@@ -1,6 +1,5 @@
 package com.itheima.datastructure.array;
 
-import com.itheima.datasructure.array.DynamicArray;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 

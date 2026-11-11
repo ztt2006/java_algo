@@ -1,6 +1,5 @@
 package com.itheima.datastructure.circular;
 
-import com.itheima.datasructure.circular.DoublyLinkedListSentinel;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

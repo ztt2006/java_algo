@@ -1,4 +1,4 @@
-package com.itheima.datasructure.circular;
+package com.itheima.datastructure.circular;
 
 import java.util.Iterator;
 

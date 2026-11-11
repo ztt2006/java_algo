@@ -1,6 +1,5 @@
 package com.itheima.datastructure.linkedlist;
 
-import com.itheima.datasructure.linkedlist.SinglyLinkedList;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 

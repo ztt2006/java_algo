@@ -1,4 +1,4 @@
-package com.itheima.datasructure.linkedlist;
+package com.itheima.datastructure.linkedlist;
 
 import java.util.Iterator;
 

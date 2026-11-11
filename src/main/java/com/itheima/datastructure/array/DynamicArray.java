@@ -1,4 +1,4 @@
-package com.itheima.datasructure.array;
+package com.itheima.datastructure.array;
 
 import java.util.Arrays;
 import java.util.Iterator;
