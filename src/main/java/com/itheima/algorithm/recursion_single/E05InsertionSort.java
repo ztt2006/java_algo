@@ -1,8 +1,8 @@
 package com.itheima.algorithm.recursion_single;
 
 public class E05InsertionSort {
-    public static void main(String[] args) {
-
+    public static void sort(int[] a) {
+        insertion(a, 1);
     }
 
     private static void insertion(int[] a, int low) {
