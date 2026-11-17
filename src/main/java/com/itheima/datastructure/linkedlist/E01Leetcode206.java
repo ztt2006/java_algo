@@ -51,15 +51,45 @@ public class E01Leetcode206 {
     }
 
     // 方法3 -递归
-    public static ListNode reverseList(ListNode head) {
+    public static ListNode reverseList3(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode last = reverseList(head.next);
+        ListNode last = reverseList3(head.next);
         head.next.next = head;
         head.next = null;
         return last;
     }
+
+    //     方法四 - 迭代
+    public static ListNode reverseList4(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode o2 = head.next;
+        ListNode n1 = head;
+
+        while (o2 != null) {
+            head.next = o2.next;
+            o2.next = n1;
+            n1 = o2;
+            o2 = head.next;
+        }
+        return n1;
+    }
+
+    // 方法5
+    public static ListNode reverseList(ListNode head) {
+        ListNode n1 = null;
+        while (head != null) {
+            ListNode o2 = head.next;
+            head.next = n1;
+            n1 = head;
+            head = o2;
+        }
+        return n1;
+    }
+
 
     public static void main(String[] args) {
         ListNode head = ListNode.of(1, 2, 3, 4, 5);
